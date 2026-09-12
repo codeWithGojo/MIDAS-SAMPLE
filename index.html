@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta
     name="description"
-    content="Discover Midas Football Academy Foundation: football development, education, practical skills and mentorship for young Nigerians."
-  >
+    content="Sample homepage redesign for Midas FA Foundation by Favour Imegu."
+  />
 
   <title>Midas FA Foundation | More Than the Game</title>
 
-  <link
-    rel="icon"
-    href="https://midasfafoundation.org/wp-content/uploads/2026/02/cropped-logo-32x32.png"
-  >
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <script>
-    /* Apply the saved theme before the page renders. */
-    try {
-      if (localStorage.getItem("midas-theme") === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    } catch {}
-  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root {
-      --bg: #f7f7f4;
-      --ink: #171717;
-      --muted: #595956;
-      --line: #cececa;
-      --panel: #eeeee9;
-      --pad: clamp(1.25rem, 4.5vw, 5rem);
-      color-scheme: light;
-    }
-
-    html.dark {
-      --bg: #161616;
-      --ink: #f4f4ef;
-      --muted: #b8b8b2;
-      --line: #494945;
-      --panel: #232322;
-      color-scheme: dark;
-    }
+    /* =========================================================
+       RESET
+    ========================================================= */
 
     *,
     *::before,
@@ -57,45 +30,24 @@
       box-sizing: border-box;
     }
 
+    * {
+      margin: 0;
+    }
+
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 2rem;
+      scroll-padding-top: 100px;
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
       background: var(--bg);
-      color: var(--ink);
-      font-family: "DM Sans", Arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
-      -webkit-text-size-adjust: 100%;
-    }
-
-    h1, h2, h3, p, figure {
-      margin: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, input, select, textarea {
-      font: inherit;
-    }
-
-    button, a, summary {
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    button, input, select, textarea {
-      border-radius: 0;
+      color: var(--text);
+      transition:
+        background-color 0.45s ease,
+        color 0.45s ease;
     }
 
     img {
@@ -103,1860 +55,3289 @@
       max-width: 100%;
     }
 
-    [hidden] {
-      display: none !important;
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
     }
 
-    :where(a, button, input, select, textarea, summary):focus-visible {
-      outline: 3px solid var(--ink);
-      outline-offset: 5px;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .page {
-      max-width: 1920px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    /* =========================================================
+       THEME
+    ========================================================= */
+
+    :root {
+      --bg: #f3f2ec;
+      --bg-soft: #e8e8e1;
+      --surface: #ffffff;
+      --surface-2: #e9e9e1;
+
+      --text: #0d0f0d;
+      --text-soft: #51574f;
+      --text-faint: #777d75;
+
+      --accent: #b9f6c2;
+      --accent-strong: #73d982;
+      --accent-text: #071108;
+
+      --dark: #0b0d0b;
+      --dark-2: #131713;
+
+      --border: rgba(13, 15, 13, 0.14);
+      --border-strong: rgba(13, 15, 13, 0.28);
+
+      --nav-bg: rgba(243, 242, 236, 0.88);
+
+      --shadow:
+        0 20px 70px rgba(15, 20, 14, 0.08);
+
+      --radius-sm: 10px;
+      --radius: 18px;
+      --radius-lg: 28px;
+
+      --container: 1280px;
+    }
+
+    body.dark {
+      --bg: #090b09;
+      --bg-soft: #101310;
+      --surface: #121512;
+      --surface-2: #191d19;
+
+      --text: #f5f7f3;
+      --text-soft: #a7afa5;
+      --text-faint: #727a70;
+
+      --accent: #b9f6c2;
+      --accent-strong: #7de38a;
+      --accent-text: #071108;
+
+      --border: rgba(238, 244, 236, 0.12);
+      --border-strong: rgba(238, 244, 236, 0.22);
+
+      --nav-bg: rgba(9, 11, 9, 0.88);
+
+      --shadow:
+        0 25px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
       margin-inline: auto;
     }
 
-    .icon-definitions {
+    .mono {
+      font-family: "Space Mono", monospace;
+    }
+
+    .display {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      color: var(--text-soft);
+      margin-bottom: 24px;
+    }
+
+    .section-number::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--text);
+      opacity: 0.35;
+    }
+
+    .section-title {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 0.89;
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      color: var(--text-soft);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .eyebrow {
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+
+      padding: 0 20px;
+
+      border-radius: 999px;
+      border: 1px solid transparent;
+
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: 11px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: white;
+    }
+
+    body.dark .btn-dark {
+      background: white;
+      color: #090b09;
+    }
+
+    .btn-outline {
+      border-color: var(--border-strong);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-arrow {
+      font-size: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--accent-strong);
+      outline-offset: 3px;
+    }
+
+    /* =========================================================
+       PROPOSAL BAR
+    ========================================================= */
+
+    .proposal-bar {
+      background: var(--dark);
+      color: white;
+
+      min-height: 38px;
+
+      display: flex;
+      align-items: center;
+
+      font-family: "Space Mono", monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .proposal-inner {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .proposal-muted {
+      opacity: 0.6;
+    }
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: var(--nav-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+
+      background: var(--dark);
+      color: white;
+
+      display: grid;
+      place-items: center;
+
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 21px;
+      font-weight: 900;
+
+      border: 1px solid var(--border);
+    }
+
+    body.dark .brand-mark {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .brand-copy {
+      display: grid;
+      line-height: 1.05;
+    }
+
+    .brand-name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      margin-top: 3px;
+
+      font-family: "Space Mono", monospace;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+
+      color: var(--text-soft);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+    }
+
+    .desktop-nav a {
+      position: relative;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      color: var(--text-soft);
+    }
+
+    .desktop-nav a::after {
+      content: "";
       position: absolute;
+
+      left: 0;
+      bottom: -8px;
+
       width: 0;
-      height: 0;
+      height: 1px;
+
+      background: var(--text);
+
+      transition: width 0.2s ease;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--text);
+    }
+
+    .desktop-nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .theme-toggle,
+    .menu-toggle {
+      width: 46px;
+      height: 46px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .theme-toggle:hover,
+    .menu-toggle:hover {
+      transform: translateY(-2px);
+    }
+
+    .theme-icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: relative;
+    }
+
+    .menu-lines {
+      width: 17px;
+      height: 12px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-lines span {
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+
+      transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+    }
+
+    .menu-toggle.active .menu-lines span:first-child {
+      transform: translateY(5.5px) rotate(45deg);
+    }
+
+    .menu-toggle.active .menu-lines span:last-child {
+      transform: translateY(-5.5px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      overflow: hidden;
+
+      max-height: 0;
+
+      border-top: 1px solid transparent;
+
+      transition:
+        max-height 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .mobile-menu.open {
+      max-height: 480px;
+      border-color: var(--border);
+    }
+
+    .mobile-links {
+      padding: 14px 0 24px;
+
+      display: grid;
+    }
+
+    .mobile-links a {
+      padding: 17px 0;
+      border-bottom: 1px solid var(--border);
+
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 116px);
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+
+      padding:
+        clamp(70px, 9vw, 130px)
+        max(24px, calc((100vw - var(--container)) / 2))
+        80px
+        max(24px, calc((100vw - var(--container)) / 2));
+
+      padding-right: clamp(40px, 7vw, 100px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-bottom: 34px;
+    }
+
+    .hero-tag-line {
+      width: 34px;
+      height: 2px;
+      background: var(--accent-strong);
+    }
+
+    .hero-tag span {
+      font-family: "Space Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+
+      color: var(--text-soft);
+    }
+
+    .hero h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(75px, 10vw, 155px);
+      line-height: 0.75;
+      letter-spacing: -0.045em;
+
+      text-transform: uppercase;
+
+      max-width: 760px;
+    }
+
+    .hero-hollow {
+      color: transparent;
+      -webkit-text-stroke: 1.6px var(--text);
+    }
+
+    .hero-intro {
+      max-width: 470px;
+
+      margin-top: 40px;
+
+      font-size: 18px;
+      line-height: 1.55;
+
+      color: var(--text-soft);
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 690px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(9, 11, 9, 0.02),
+          rgba(9, 11, 9, 0.15)
+        ),
+        url("https://midasfafoundation.org/wp-content/uploads/2025/02/IMG-20250209-WA0041.jpg")
+        center/cover no-repeat;
+
       overflow: hidden;
     }
 
-    .icon {
-      display: inline-block;
-      width: 1.25rem;
-      height: 1.25rem;
-      flex: 0 0 auto;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      vertical-align: middle;
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(9, 11, 9, 0.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(9, 11, 9, 0.48),
+          transparent 42%
+        );
+
+      pointer-events: none;
     }
+
+    .hero-photo-label {
+      position: absolute;
+      z-index: 2;
+
+      bottom: 28px;
+      left: 28px;
+
+      color: white;
+    }
+
+    .hero-photo-label .small {
+      font-family: "Space Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      opacity: 0.75;
+    }
+
+    .hero-photo-label strong {
+      display: block;
+      margin-top: 5px;
+
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 31px;
+      text-transform: uppercase;
+    }
+
+    .hero-side-number {
+      position: absolute;
+      z-index: 2;
+
+      right: 24px;
+      top: 24px;
+
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+
+      color: white;
+
+      writing-mode: vertical-rl;
+
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* =========================================================
+       MARQUEE
+    ========================================================= */
+
+    .ticker {
+      overflow: hidden;
+      background: var(--accent);
+      color: var(--accent-text);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ticker-track {
+      min-width: max-content;
+
+      padding: 13px 0;
+
+      display: flex;
+      gap: 34px;
+
+      animation: ticker 25s linear infinite;
+    }
+
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+
+      font-family: "Space Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .ticker-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+
+      background: currentColor;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* =========================================================
+       IMPACT
+    ========================================================= */
+
+    .impact {
+      padding: 70px 0;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .impact-card {
+      min-height: 210px;
+      padding: 32px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .impact-card:last-child {
+      border-right: 0;
+    }
+
+    .impact-value {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(54px, 6vw, 90px);
+      line-height: 0.8;
+      font-weight: 800;
+
+      text-transform: uppercase;
+    }
+
+    .impact-value sup {
+      color: var(--accent-strong);
+      font-size: 0.42em;
+    }
+
+    .impact-label {
+      max-width: 170px;
+
+      color: var(--text-soft);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .impact-source {
+      margin-top: 16px;
+
+      display: flex;
+      justify-content: flex-end;
+
+      color: var(--text-faint);
+
+      font-family: "Space Mono", monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       FOUNDATION
+    ========================================================= */
+
+    .foundation-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .foundation-copy .section-title {
+      max-width: 720px;
+    }
+
+    .foundation-copy .section-copy {
+      max-width: 620px;
+      margin-top: 36px;
+      font-size: 18px;
+    }
+
+    .foundation-statement {
+      position: sticky;
+      top: 130px;
+
+      padding-top: 60px;
+
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+
+      font-size: clamp(33px, 4vw, 60px);
+      line-height: 0.95;
+
+      color: var(--text-soft);
+    }
+
+    .foundation-statement strong {
+      color: var(--text);
+    }
+
+    /* =========================================================
+       PROGRAMMES
+    ========================================================= */
+
+    .programmes {
+      background: var(--dark);
+      color: white;
+    }
+
+    .programmes .section-number {
+      color: rgba(255, 255, 255, 0.56);
+    }
+
+    .programmes .section-number::before {
+      background: white;
+    }
+
+    .programme-heading {
+      display: grid;
+      grid-template-columns: 1fr 0.65fr;
+      align-items: end;
+      gap: 50px;
+
+      margin-bottom: 65px;
+    }
+
+    .programme-heading p {
+      max-width: 460px;
+      margin-left: auto;
+
+      color: rgba(255, 255, 255, 0.61);
+
+      line-height: 1.7;
+    }
+
+    .programme-feature {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+
+      min-height: 610px;
+
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .programme-photo {
+      background:
+        linear-gradient(
+          0deg,
+          rgba(7, 8, 7, 0.36),
+          rgba(7, 8, 7, 0.05)
+        ),
+        url("https://midasfafoundation.org/wp-content/uploads/2025/02/IMG-20250209-WA0046.jpg")
+        center/cover no-repeat;
+
+      min-height: 510px;
+    }
+
+    .programme-list {
+      display: grid;
+    }
+
+    .programme-row {
+      padding: 31px;
+
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 18px;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .programme-row:last-child {
+      border-bottom: 0;
+    }
+
+    .programme-row:hover {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .programme-num {
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+
+      opacity: 0.55;
+    }
+
+    .programme-row h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+
+      font-size: clamp(26px, 3vw, 39px);
+      line-height: 0.95;
+    }
+
+    .programme-row p {
+      max-width: 490px;
+      margin-top: 9px;
+
+      font-size: 13px;
+      line-height: 1.6;
+
+      opacity: 0.56;
+    }
+
+    /* =========================================================
+       REAL MOMENTS / GALLERY
+    ========================================================= */
+
+    .gallery-heading {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      align-items: end;
+      gap: 50px;
+
+      margin-bottom: 52px;
+    }
+
+    .gallery-heading .section-copy {
+      max-width: 460px;
+      margin-left: auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-rows: 280px 280px;
+
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+
+      background: var(--surface-2);
+      border-radius: 4px;
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform 0.65s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.035);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: auto 0 0;
+
+      padding: 22px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          0deg,
+          rgba(8, 9, 8, 0.75),
+          transparent
+        );
+    }
+
+    .gallery-overlay span {
+      font-family: "Space Mono", monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* =========================================================
+       JOIN
+    ========================================================= */
+
+    .join {
+      background: var(--bg-soft);
+    }
+
+    .join-heading {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 60px;
+      align-items: end;
+
+      margin-bottom: 60px;
+    }
+
+    .join-heading p {
+      max-width: 500px;
+      margin-left: auto;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      border-top: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    .step-card {
+      min-height: 320px;
+      padding: 28px;
+
+      display: flex;
+      flex-direction: column;
+
+      border-right: 1px solid var(--border);
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .step-card:last-child {
+      border-right: 0;
+    }
+
+    .step-number {
+      font-family: "Space Mono", monospace;
+      font-size: 11px;
+
+      color: var(--text-soft);
+    }
+
+    .step-card h3 {
+      margin-top: auto;
+
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: 36px;
+    }
+
+    .step-card p {
+      margin-top: 14px;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       ENQUIRY
+    ========================================================= */
+
+    .enquiry {
+      overflow: hidden;
+    }
+
+    .enquiry-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .enquiry-intro {
+      position: sticky;
+      top: 130px;
+    }
+
+    .enquiry-intro .section-title {
+      font-size: clamp(55px, 7vw, 105px);
+    }
+
+    .enquiry-intro .section-copy {
+      margin-top: 28px;
+      max-width: 490px;
+    }
+
+    .phone-block {
+      margin-top: 45px;
+
+      padding-top: 22px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .phone-block small {
+      display: block;
+
+      margin-bottom: 8px;
+
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+
+      font-size: 9px;
+      color: var(--text-soft);
+    }
+
+    .phone-block a {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .form-card {
+      padding: clamp(24px, 4vw, 52px);
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .form-label-top {
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+
+      font-size: 9px;
+      letter-spacing: 0.06em;
+
+      color: var(--text-soft);
+
+      margin-bottom: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .field-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .field-group label {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%;
+
+      padding: 15px 0;
+
+      color: var(--text);
+
+      border: 0;
+      border-bottom: 1px solid var(--border-strong);
+      border-radius: 0;
+
+      background: transparent;
+
+      outline: none;
+
+      transition: border-color 0.2s ease;
+    }
+
+    .field-group textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
+      border-bottom-color: var(--accent-strong);
+    }
+
+    select option {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .form-notice {
+      margin: 25px 0;
+
+      padding: 15px;
+
+      background: var(--bg-soft);
+
+      border-radius: 10px;
+
+      color: var(--text-soft);
+
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .form-result {
+      display: none;
+
+      margin-top: 18px;
+      padding: 16px;
+
+      border: 1px solid var(--accent-strong);
+      border-radius: 10px;
+
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .form-result.visible {
+      display: block;
+    }
+
+    /* =========================================================
+       SPONSORSHIP
+    ========================================================= */
+
+    .sponsor {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .sponsor .section-number {
+      color: rgba(7, 17, 8, 0.55);
+    }
+
+    .sponsor .section-number::before {
+      background: var(--accent-text);
+    }
+
+    .sponsor-head {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 70px;
+      align-items: end;
+
+      margin-bottom: 60px;
+    }
+
+    .sponsor-head p {
+      max-width: 510px;
+      margin-left: auto;
+
+      color: rgba(7, 17, 8, 0.68);
+      line-height: 1.7;
+    }
+
+    .sponsor-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      border-top: 1px solid rgba(7, 17, 8, 0.28);
+      border-bottom: 1px solid rgba(7, 17, 8, 0.28);
+    }
+
+    .sponsor-card {
+      min-height: 340px;
+      padding: 32px;
+
+      display: flex;
+      flex-direction: column;
+
+      border-right: 1px solid rgba(7, 17, 8, 0.22);
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease;
+    }
+
+    .sponsor-card:last-child {
+      border-right: 0;
+    }
+
+    .sponsor-card:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    .sponsor-card-number {
+      font-family: "Space Mono", monospace;
+      font-size: 10px;
+
+      opacity: 0.6;
+    }
+
+    .sponsor-card-content {
+      margin-top: auto;
+    }
+
+    .sponsor-card h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: 38px;
+      line-height: 0.95;
+    }
+
+    .sponsor-card p {
+      max-width: 320px;
+      margin-top: 15px;
+
+      font-size: 13px;
+      line-height: 1.6;
+
+      opacity: 0.68;
+    }
+
+    .sponsor-card-arrow {
+      margin-top: 26px;
+
+      font-size: 24px;
+    }
+
+    .sponsor-cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+
+      padding-top: 38px;
+    }
+
+    .sponsor-cta p {
+      max-width: 520px;
+
+      font-size: 13px;
+      line-height: 1.6;
+
+      color: rgba(7, 17, 8, 0.68);
+    }
+
+    /* =========================================================
+       SAFEGUARDING
+    ========================================================= */
+
+    .safeguarding {
+      padding: 55px 0;
+
+      background: var(--dark);
+      color: white;
+    }
+
+    .safeguarding-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1fr auto;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .safeguarding h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+      font-size: 42px;
+      line-height: 0.95;
+    }
+
+    .safeguarding p {
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .safeguarding-links {
+      display: grid;
+      gap: 8px;
+
+      font-family: "Space Mono", monospace;
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    .footer {
+      padding: 80px 0 30px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 80px;
+
+      padding-bottom: 60px;
+    }
+
+    .footer-title {
+      font-family: "Barlow Condensed", sans-serif;
+      text-transform: uppercase;
+
+      font-size: clamp(65px, 9vw, 140px);
+      line-height: 0.72;
+      letter-spacing: -0.04em;
+    }
+
+    .footer-title .outline {
+      color: transparent;
+      -webkit-text-stroke: 1.4px var(--text);
+    }
+
+    .footer-side {
+      display: grid;
+      align-content: end;
+      gap: 8px;
+    }
+
+    .footer-side a {
+      padding: 11px 0;
+
+      display: flex;
+      justify-content: space-between;
+
+      border-bottom: 1px solid var(--border);
+
+      font-family: "Space Mono", monospace;
+      text-transform: uppercase;
+
+      font-size: 10px;
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      border-top: 1px solid var(--border);
+
+      color: var(--text-soft);
+
+      font-family: "Space Mono", monospace;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sample-note {
+      padding: 14px 20px;
+
+      text-align: center;
+
+      background: var(--bg-soft);
+
+      color: var(--text-soft);
+
+      border-top: 1px solid var(--border);
+
+      font-family: "Space Mono", monospace;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* =========================================================
+       THEME TRANSITION
+    ========================================================= */
+
+    .theme-wipe {
+      position: fixed;
+      z-index: 1000;
+
+      width: 20px;
+      height: 20px;
+
+      top: var(--wipe-y, 60px);
+      left: var(--wipe-x, calc(100% - 50px));
+
+      pointer-events: none;
+
+      border-radius: 50%;
+
+      transform: translate(-50%, -50%) scale(0);
+
+      background: var(--wipe-color, #090b09);
+    }
+
+    .theme-wipe.animate {
+      animation: themeWipe 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    @keyframes themeWipe {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+      }
+
+      50%,
+      100% {
+        transform: translate(-50%, -50%) scale(180);
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1100px) {
+      .desktop-nav {
+        gap: 17px;
+      }
+
+      .desktop-nav a {
+        font-size: 11px;
+      }
+
+      .foundation-grid {
+        gap: 60px;
+      }
+
+      .enquiry-grid {
+        gap: 55px;
+      }
+    }
+
+    @media (max-width: 930px) {
+      .container {
+        width: min(calc(100% - 34px), var(--container));
+      }
+
+      .desktop-nav,
+      .nav-apply {
+        display: none;
+      }
+
+      .menu-toggle,
+      .mobile-menu {
+        display: grid;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-copy {
+        padding: 80px 24px 72px;
+      }
+
+      .hero h1 {
+        max-width: 680px;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .impact-card:nth-child(2) {
+        border-right: 0;
+      }
+
+      .impact-card:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .foundation-grid,
+      .programme-heading,
+      .gallery-heading,
+      .join-heading,
+      .enquiry-grid,
+      .sponsor-head {
+        grid-template-columns: 1fr;
+      }
+
+      .foundation-statement,
+      .enquiry-intro {
+        position: static;
+        padding-top: 0;
+      }
+
+      .programme-heading p,
+      .gallery-heading .section-copy,
+      .join-heading p,
+      .sponsor-head p {
+        margin-left: 0;
+      }
+
+      .programme-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .programme-photo {
+        min-height: 460px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .step-card:nth-child(2) {
+        border-right: 0;
+      }
+
+      .step-card:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .sponsor-options {
+        grid-template-columns: 1fr;
+      }
+
+      .sponsor-card {
+        min-height: 250px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(7, 17, 8, 0.22);
+      }
+
+      .sponsor-card:last-child {
+        border-bottom: 0;
+      }
+
+      .safeguarding-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .proposal-inner {
+        width: calc(100% - 30px);
+      }
+
+      .proposal-inner .proposal-muted {
+        display: none;
+      }
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      .brand-sub {
+        font-size: 7px;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .hero-copy {
+        padding-top: 70px;
+      }
+
+      .hero h1 {
+        font-size: clamp(68px, 22vw, 100px);
+      }
+
+      .hero-intro {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .impact {
+        padding: 45px 0;
+      }
+
+      .impact-card {
+        min-height: 170px;
+        padding: 22px;
+      }
+
+      .programme-photo {
+        min-height: 370px;
+      }
+
+      .programme-row {
+        padding: 25px 20px;
+        grid-template-columns: 42px 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 420px 260px 260px;
+      }
+
+      .gallery-item:first-child {
+        grid-row: auto;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step-card {
+        min-height: 230px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .step-card:last-child {
+        border-bottom: 0;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-group.full {
+        grid-column: auto;
+      }
+
+      .sponsor-cta {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .sponsor-cta .btn {
+        width: 100%;
+      }
+
+      .footer-title {
+        font-size: clamp(62px, 24vw, 105px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .proposal-bar {
+        min-height: 34px;
+      }
+
+      .proposal-inner {
+        width: calc(100% - 28px);
+        font-size: 8px;
+      }
+
+      .nav-actions {
+        gap: 6px;
+      }
+
+      .theme-toggle,
+      .menu-toggle {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hero-copy {
+        padding-inline: 14px;
+      }
+
+      .hero h1 {
+        font-size: clamp(65px, 23.5vw, 95px);
+      }
+
+      .impact-card {
+        padding: 19px 14px;
+      }
+
+      .impact-value {
+        font-size: 55px;
+      }
+
+      .impact-label {
+        font-size: 11px;
+      }
+
+      .section-title {
+        font-size: clamp(48px, 16vw, 72px);
+      }
+
+      .gallery-grid {
+        grid-template-rows: 340px 220px 220px;
+      }
+
+      .form-card {
+        padding: 22px 18px;
+      }
+    }
+
+    /* =========================================================
+       ACCESSIBILITY
+    ========================================================= */
 
     .skip-link {
       position: fixed;
-      inset: 0.75rem auto auto 0.75rem;
-      z-index: 100;
-      padding: 0.75rem 1rem;
-      background: var(--ink);
-      color: var(--bg);
-      transform: translateY(-160%);
+      z-index: 2000;
+
+      top: 10px;
+      left: 10px;
+
+      transform: translateY(-150%);
+
+      padding: 12px 18px;
+
+      background: var(--accent);
+      color: var(--accent-text);
+
+      border-radius: 8px;
+
+      font-weight: 700;
     }
 
     .skip-link:focus {
       transform: translateY(0);
     }
 
-    .proposal-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.6rem var(--pad);
-      background: #171717;
-      color: #eeeeea;
-      font-size: 0.75rem;
-    }
-
-    .proposal-bar span:last-child {
-      color: #c1c1bb;
-      text-align: right;
-    }
-
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding: 1.2rem var(--pad);
-      border-bottom: 1px solid var(--line);
-      position: relative;
-      z-index: 20;
-      background: var(--bg);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-shrink: 0;
-    }
-
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      /* Preserve the original green and gold logo. */
-      filter: none;
-    }
-
-    .brand-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-    }
-
-    .brand-name small {
-      display: block;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      margin-top: 0.35rem;
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: clamp(1rem, 2vw, 2rem);
-    }
-
-    .main-nav a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      font-size: 0.875rem;
-    }
-
-    .main-nav a:hover,
-    .footer-links a:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
-
-    .header-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .theme-button {
-      display: grid;
-      place-items: center;
-      width: 48px;
-      height: 48px;
-      padding: 0;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--ink);
-      flex-shrink: 0;
-    }
-
-    .theme-button:hover {
-      background: var(--panel);
-    }
-
-    .theme-button .sun-icon,
-    .dark .theme-button .moon-icon {
-      display: none;
-    }
-
-    .dark .theme-button .sun-icon {
-      display: block;
-    }
-
-    .menu-button {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      min-width: 48px;
-      min-height: 48px;
-      border: 0;
-      padding: 0.5rem;
-      color: var(--ink);
-      background: transparent;
-      font-size: 0.875rem;
-    }
-
-    .eyebrow {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      line-height: 1.6;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      padding: 1.75rem var(--pad) 0;
-    }
-
-    .hero-top,
-    .hero-foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .hero-top {
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.14fr 1fr;
-      min-height: 560px;
-    }
-
-    .hero-grid > *,
-    .about > *,
-    .programme-grid > *,
-    .enquiry > *,
-    .sponsor > * {
-      min-width: 0;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      padding-top: 1.75rem;
-    }
-
-    h1 {
-      font-family: "Barlow Condensed", Impact, sans-serif;
-      font-size: clamp(4.5rem, 9.5vw, 9.5rem);
-      font-weight: 700;
-      line-height: 0.94;
-      letter-spacing: -0.025em;
-      margin-right: -9rem;
-      pointer-events: none;
-    }
-
-    h1 > span {
-      display: block;
-      animation: title-enter 800ms ease both;
-    }
-
-    h1 > span:last-child {
-      animation-delay: 120ms;
-    }
-
-    h1 em {
-      color: var(--bg);
-      background: var(--bg);
-      -webkit-text-stroke: 1px var(--ink);
-      font-style: normal;
-    }
-
-    .hero-intro {
-      display: flex;
-      gap: 2rem;
-      padding: 2.75rem 1.75rem 2.75rem 0;
-    }
-
-    .hero-plus {
-      font-size: 4rem;
-      font-weight: 400;
-      line-height: 0.8;
-    }
-
-    .hero-intro > div:last-child {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .hero-intro p {
-      font-size: 1.2rem;
-      line-height: 1.55;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      min-height: 54px;
-      padding: 1rem 1.25rem;
-      border: 1px solid var(--ink);
-      font-size: 0.875rem;
-      font-weight: 600;
-      line-height: 1.4;
-      transition: transform 180ms ease, background 180ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      background: var(--ink);
-      color: var(--bg);
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .button-light {
-      background: #f5f5f0;
-      color: #171717;
-      border-color: #f5f5f0;
-    }
-
-    .hero-photo {
-      position: relative;
-      min-height: 560px;
-      overflow: hidden;
-      background: #444;
-      color: white;
-    }
-
-    .hero-photo > img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 72% center;
-      filter: grayscale(1) brightness(0.85);
-      animation: photo-enter 1200ms ease-out both;
-    }
-
-    .photo-label {
-      position: absolute;
-      inset: 1.2rem 1.3rem auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.07em;
-      text-shadow: 0 1px 5px #000;
-    }
-
-    .hero-photo figcaption {
-      position: absolute;
-      inset: auto 0 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: rgb(20 20 20 / 86%);
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-
-    .photo-link {
-      display: grid;
-      place-items: center;
-      width: 48px;
-      height: 48px;
-      border: 1px solid #b4b4b4;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .photo-link:focus-visible,
-    .sponsor a:focus-visible {
-      outline-color: white;
-    }
-
-    .hero-foot {
-      padding: 1.3rem 0;
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
-    }
-
-    .hero-foot a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      min-height: 44px;
-      flex-shrink: 0;
-    }
-
-    .impact {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      padding: 3rem var(--pad) 1.2rem;
-      background: var(--ink);
-      color: var(--bg);
-    }
-
-    .impact-item {
-      padding-left: 2rem;
-      border-left: 1px solid #777;
-    }
-
-    .impact-item:first-child {
-      padding-left: 0;
-      border-left: 0;
-    }
-
-    .impact strong {
-      display: block;
-      font: 600 clamp(3.75rem, 6vw, 5.5rem)/1
-        "Barlow Condensed", Impact, sans-serif;
-      letter-spacing: -0.025em;
-    }
-
-    .impact strong span {
-      font-size: 0.65em;
-      vertical-align: top;
-    }
-
-    .impact p {
-      margin-top: 0.9rem;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .impact-source {
-      grid-column: 1 / -1;
-      justify-self: end;
-      margin-top: 1.7rem;
-      font-size: 0.75rem;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .section {
-      padding: clamp(3.5rem, 6.5vw, 6rem) var(--pad);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.045em;
-      overflow-wrap: break-word;
-    }
-
-    h3 {
-      font-size: 1.35rem;
-      font-weight: 500;
-      line-height: 1.3;
-      letter-spacing: -0.025em;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 2.4fr;
-      gap: 2rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .about > .eyebrow {
-      padding-top: 0.5rem;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .about-copy {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 2rem;
-      color: var(--muted);
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-heading h2 {
-      margin-top: 1.2rem;
-    }
-
-    .section-heading > p {
-      max-width: 310px;
-      color: var(--muted);
-    }
-
-    .programme-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: clamp(2rem, 4.5vw, 4rem);
-    }
-
-    .programme-photo {
-      position: relative;
-      min-height: 420px;
-      overflow: hidden;
-      background: var(--panel);
-    }
-
-    .programme-photo img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(1);
-    }
-
-    .programme-photo figcaption {
-      position: absolute;
-      inset: auto auto 0 0;
-      max-width: 100%;
-      padding: 0.85rem 1rem;
-      background: #171717;
-      color: white;
-      font-size: 0.75rem;
-      letter-spacing: 0.04em;
-    }
-
-    details {
-      border-top: 1px solid var(--line);
-    }
-
-    details:last-of-type {
-      border-bottom: 1px solid var(--line);
-    }
-
-    summary {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      padding: 1.5rem 0;
-      cursor: pointer;
-      list-style: none;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .programme-number {
-      color: var(--muted);
-      font-size: 0.8rem;
-      flex-shrink: 0;
-    }
-
-    summary .icon {
-      margin-left: auto;
-      transition: transform 200ms ease;
-    }
-
-    details[open] summary .icon {
-      transform: rotate(45deg);
-    }
-
-    details p {
-      max-width: 440px;
-      margin: 0 2.25rem 1.6rem;
-      color: var(--muted);
-    }
-
-    .inline-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      min-height: 44px;
-      margin-top: 1.1rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .inline-link:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
-
-    .statement-band {
-      padding: 1.35rem var(--pad);
-      border-block: 1px solid var(--line);
-      font: 600 clamp(1.7rem, 3.4vw, 3.2rem)/1.2
-        "Barlow Condensed", Impact, sans-serif;
-      letter-spacing: -0.01em;
-      text-align: center;
-      text-wrap: balance;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      list-style: none;
-      margin: 2.5rem 0 0;
-      padding: 0;
-    }
-
-    .steps li {
-      border-left: 1px solid var(--line);
-      padding: 0 1.75rem;
-    }
-
-    .steps li:first-child {
-      border: 0;
-      padding-left: 0;
-    }
-
-    .step-number {
-      display: block;
-      font: 600 3rem/1 "Barlow Condensed", Impact, sans-serif;
-      color: var(--muted);
-      margin-bottom: 1.6rem;
-    }
-
-    .steps p {
-      color: var(--muted);
-      margin-top: 0.9rem;
-    }
-
-    .enquiry {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: clamp(2.5rem, 6vw, 6rem);
-      background: var(--panel);
-    }
-
-    .enquiry h2 {
-      margin: 1.4rem 0;
-    }
-
-    .enquiry-intro > p {
-      max-width: 390px;
-      color: var(--muted);
-    }
-
-    .direct-contact {
-      margin-top: 2rem;
-    }
-
-    .direct-contact a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      min-height: 48px;
-      margin-top: 0.5rem;
-      font-size: 1.15rem;
-    }
-
-    .form-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.6rem;
-    }
-
-    .demo-label {
-      border: 1px solid var(--line);
-      padding: 0.25rem 0.45rem;
-      font-size: 0.75rem;
-      white-space: nowrap;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-
-    label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
-    input, select, textarea {
-      display: block;
-      width: 100%;
-      min-width: 0;
-      min-height: 52px;
-      margin-top: 0.5rem;
-      border: 1px solid var(--line);
-      padding: 0.8rem;
-      background: var(--bg);
-      color: var(--ink);
-      font-size: 1rem;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: var(--muted);
-      opacity: 1;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    .message-field {
-      margin-top: 1.25rem;
-    }
-
-    .optional {
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    .form-note {
-      margin: 1rem 0;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    form .button {
-      width: 100%;
-    }
-
-    .form-result {
-      margin-top: 1.2rem;
-      padding: 1.25rem;
-      border: 1px solid var(--ink);
-      font-size: 0.9rem;
-      overflow-wrap: anywhere;
-    }
-
-    .form-result strong {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .sponsor {
-      display: grid;
-      grid-template-columns: 1fr 2.4fr;
-      gap: 2rem;
-      background: #111;
-      color: #f5f5ef;
-    }
-
-    .sponsor h2 {
-      font: 600 clamp(3rem, 7.2vw, 7rem)/0.98
-        "Barlow Condensed", Impact, sans-serif;
-      letter-spacing: -0.02em;
-    }
-
-    .sponsor h2 em {
-      font-style: normal;
-      color: transparent;
-      -webkit-text-stroke: 1px #f5f5ef;
-    }
-
-    .sponsor-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .sponsor-bottom p {
-      max-width: 370px;
-      color: #c5c5bf;
-    }
-
-    .sponsor-bottom .button {
-      flex-shrink: 0;
-    }
-
-    .safeguarding {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      padding-block: 3rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .safeguarding h3 {
-      margin: 0.7rem 0;
-    }
-
-    .safeguarding p {
-      max-width: 560px;
-      color: var(--muted);
-    }
-
-    .safeguarding-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-width: 0;
-    }
-
-    .safeguarding-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      min-height: 48px;
-      font-size: 0.9rem;
-    }
-
-    .safeguarding-links span {
-      overflow-wrap: anywhere;
-    }
-
-    footer {
-      padding: 2.75rem var(--pad) 1.5rem;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .footer-top > p {
-      font-size: 1.15rem;
-      line-height: 1.45;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-    }
-
-    .footer-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      min-height: 44px;
-      font-size: 0.875rem;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.5rem;
-      border-top: 1px solid var(--line);
-      padding-top: 1.25rem;
-      color: var(--muted);
-      font-size: 0.75rem;
-    }
-
-    .footer-bottom a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      min-height: 44px;
-    }
-
-    @keyframes title-enter {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes photo-enter {
-      from { transform: scale(1.055); }
-      to { transform: scale(1); }
-    }
-
-    ::view-transition-old(root) {
-      animation: none;
-    }
-
-    ::view-transition-new(root) {
-      mix-blend-mode: normal;
-      animation: theme-wipe 750ms cubic-bezier(.76, 0, .24, 1) both;
-    }
-
-    @keyframes theme-wipe {
-      from {
-        clip-path: ellipse(0% 0% at var(--wipe-x, 90%) var(--wipe-y, 5%));
-      }
-      60% {
-        clip-path: ellipse(85% 70% at var(--wipe-x, 90%) var(--wipe-y, 5%));
-      }
-      to {
-        clip-path: ellipse(170% 160% at var(--wipe-x, 90%) var(--wipe-y, 5%));
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .main-nav { gap: 1rem; }
-      .hero-grid, .hero-photo { min-height: 500px; }
-      .hero-intro { gap: 1.25rem; }
-
-      .sponsor-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .site-header { gap: 1rem; }
-      .menu-button { display: inline-flex; }
-
-      .main-nav {
-        display: none;
-        position: absolute;
-        inset: 100% 0 auto;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.25rem;
-        padding: 1rem var(--pad);
-        border-bottom: 1px solid var(--line);
-        background: var(--bg);
-      }
-
-      .main-nav.is-open { display: flex; }
-
-      .main-nav a {
-        padding: 0.65rem 0;
-        font-size: 1rem;
-        min-height: 48px;
-      }
-
-      .about {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .programme-grid { gap: 2rem; }
-
-      .footer-top {
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .proposal-bar {
-        font-size: 0.75rem;
-        padding-block: 0.55rem;
-      }
-
-      .proposal-bar span:last-child {
-        max-width: 180px;
-      }
-
-      .site-header { padding-block: 0.9rem; }
-      .brand { gap: 0.55rem; }
-      .brand img { width: 44px; height: 44px; }
-      .brand-name { font-size: 1.1rem; }
-      .brand-name small { font-size: 0.6rem; }
-      .header-controls { gap: 0.3rem; }
-
-      .hero { padding-top: 1.3rem; }
-      .hero-top { margin-bottom: 1.4rem; }
-      .hero-top .eyebrow:last-child { display: none; }
-
-      .hero-grid {
-        display: flex;
-        flex-direction: column;
-        min-height: 0;
-      }
-
-      .hero-copy { padding-top: 0; }
-
-      h1 {
-        font-size: clamp(3rem, 12.8vw, 6rem);
-        line-height: 0.97;
-        margin-right: 0;
-      }
-
-      .hero-intro {
-        gap: 1.1rem;
-        padding: 1.65rem 0 1.8rem;
-      }
-
-      .hero-plus { font-size: 3rem; }
-      .hero-intro p { font-size: 1.125rem; }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.75rem;
-      }
-
-      .hero-actions .button {
-        width: 100%;
-        min-height: 56px;
-        font-size: 1rem;
-        padding: 1rem 1.2rem;
-      }
-
-      .hero-photo {
-        min-height: 0;
-        height: clamp(280px, 83vw, 420px);
-      }
-
-      .hero-photo figcaption { padding: 1.2rem; }
-
-      .hero-foot {
-        align-items: flex-start;
-        gap: 1rem;
-        font-size: 0.7rem;
-      }
-
-      .hero-foot > span { max-width: 230px; }
-
-      .hero-foot a {
-        min-height: 44px;
-        align-items: flex-start;
-        max-width: 95px;
-        text-align: right;
-        flex-shrink: 0;
-      }
-
-      .impact {
-        grid-template-columns: 1fr 1fr;
-        row-gap: 2rem;
-        padding-top: 2rem;
-      }
-
-      .impact-item { padding-left: 1.25rem; }
-
-      .impact-item:nth-child(3) {
-        padding-left: 0;
-        border-left: 0;
-      }
-
-      .impact strong { font-size: 4rem; }
-      .impact p { font-size: 0.95rem; }
-
-      .impact-source {
-        justify-self: start;
-        margin-top: 0;
-        line-height: 1.6;
-      }
-
-      h2 { font-size: clamp(2rem, 7.5vw, 2.75rem); }
-
-      .about-copy {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        margin-top: 1.5rem;
-      }
-
-      .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-        margin-bottom: 1.8rem;
-      }
-
-      .section-heading h2 { margin-top: 1rem; }
-      .section-heading > p { max-width: none; }
-
-      .programme-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .programme-photo { min-height: 310px; }
-      summary { gap: 0.9rem; padding-block: 1.3rem; }
-      summary h3 { font-size: 1.25rem; }
-      details p { margin-left: 2rem; margin-right: 1rem; }
-
-      .statement-band {
-        text-align: left;
-        padding-block: 1.5rem;
-      }
-
-      .steps {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem 0;
-        margin-top: 1.5rem;
-      }
-
-      .steps li { padding-inline: 1rem; }
-
-      .steps li:nth-child(3) {
-        padding-left: 0;
-        border-left: 0;
-      }
-
-      .step-number { margin-bottom: 1rem; }
-      .steps p { font-size: 0.95rem; }
-
-      .enquiry {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .form-grid { grid-template-columns: 1fr; }
-      .form-note { font-size: 0.85rem; }
-      form .button { font-size: 1rem; }
-
-      .sponsor {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
-      }
-
-      .sponsor h2 {
-        font-size: clamp(2.75rem, 11.6vw, 5rem);
-      }
-
-      .sponsor-bottom .button {
-        width: 100%;
-        font-size: 1rem;
-      }
-
-      .safeguarding {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-
-      .safeguarding-links { width: 100%; }
-
-      .footer-top {
-        align-items: flex-start;
-        gap: 1.75rem;
-      }
-
-      .footer-top > p { font-size: 1rem; }
-      .footer-links { width: 100%; }
-
-      .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .brand-name { font-size: 0.95rem; }
-      .brand-name small { font-size: 0.55rem; }
-      .brand img { width: 36px; height: 36px; }
-      .hero-plus { display: none; }
-      .form-heading { align-items: flex-start; flex-direction: column; }
-
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .steps li,
-      .steps li:first-child,
-      .steps li:nth-child(3) {
-        border: 0;
-        border-top: 1px solid var(--line);
-        padding: 1.5rem 0 0;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
 
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
+      .ticker-track {
+        animation: none;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- SVG icons render consistently without emoji substitutions. -->
-  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="arrow-up-right" viewBox="0 0 24 24">
-        <path d="M7 17 17 7M7 7h10v10"/>
-      </symbol>
-      <symbol id="arrow-down" viewBox="0 0 24 24">
-        <path d="M12 4v16m-7-7 7 7 7-7"/>
-      </symbol>
-      <symbol id="arrow-up" viewBox="0 0 24 24">
-        <path d="M12 20V4m-7 7 7-7 7 7"/>
-      </symbol>
-      <symbol id="plus" viewBox="0 0 24 24">
-        <path d="M12 5v14M5 12h14"/>
-      </symbol>
-      <symbol id="moon" viewBox="0 0 24 24">
-        <path d="M20.4 13.2A8.5 8.5 0 0 1 10.8 3.6 8.5 8.5 0 1 0 20.4 13.2Z"/>
-      </symbol>
-      <symbol id="sun" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/>
-      </symbol>
-    </defs>
-  </svg>
 
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">
+    Skip to content
+  </a>
 
-  <div class="page">
-    <div class="proposal-bar">
-      <span>DESIGN PROPOSAL</span>
-      <span>Prepared for Midas FA Foundation by Favour Imegu</span>
+  <div class="theme-wipe" id="themeWipe"></div>
+
+  <!-- =======================================================
+       DESIGN PROPOSAL BAR
+  ======================================================== -->
+
+  <div class="proposal-bar">
+    <div class="proposal-inner">
+      <div>
+        DESIGN PROPOSAL · PREPARED FOR MIDAS FA FOUNDATION
+      </div>
+
+      <div class="proposal-muted">
+        FAVOUR IMEGU · SEPTEMBER 2026
+      </div>
     </div>
+  </div>
 
-    <header class="site-header">
-      <a class="brand" href="#" aria-label="Midas Foundation home">
-        <img
-          src="https://midasfafoundation.org/wp-content/uploads/2026/02/cropped-logo-192x192.png"
-          width="52" height="52" alt=""
-        >
-        <span class="brand-name">MIDAS FA<small>FOUNDATION</small></span>
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
+  <header class="header">
+
+    <div class="container navbar">
+
+      <a class="brand" href="#top" aria-label="Midas FA Foundation home">
+
+        <div class="brand-mark">
+          M
+        </div>
+
+        <div class="brand-copy">
+          <span class="brand-name">
+            Midas FA Foundation
+          </span>
+
+          <span class="brand-sub">
+            Inspire generations
+          </span>
+        </div>
+
       </a>
 
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-        <a href="#about">The foundation</a>
-        <a href="#programmes">Programmes</a>
-        <a href="#impact">Our impact</a>
-        <a href="#join">How to join</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+
+        <a href="#foundation">
+          The foundation
+        </a>
+
+        <a href="#programmes">
+          Programmes
+        </a>
+
+        <a href="#impact">
+          Our impact
+        </a>
+
+        <a href="#join">
+          How to join
+        </a>
+
+        <a href="#sponsor">
+          Sponsorship
+        </a>
+
       </nav>
 
-      <div class="header-controls">
+      <div class="nav-actions">
+
         <button
-          class="theme-button"
-          id="theme-button"
+          class="theme-toggle"
+          id="themeToggle"
           type="button"
           aria-label="Switch to dark theme"
           title="Switch theme"
         >
-          <svg class="icon moon-icon" aria-hidden="true" focusable="false">
-            <use href="#moon"/>
+
+          <svg
+            class="theme-icon"
+            id="themeIcon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+          >
+            <circle cx="12" cy="12" r="4"></circle>
+
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
           </svg>
-          <svg class="icon sun-icon" aria-hidden="true" focusable="false">
-            <use href="#sun"/>
-          </svg>
+
         </button>
 
-        <button
-          class="menu-button"
-          id="menu-button"
-          type="button"
-          aria-expanded="false"
-          aria-controls="main-nav"
-        >Menu</button>
-      </div>
-    </header>
+        <a href="#enquiry" class="btn btn-primary nav-apply">
+          Register a player
+          <span class="btn-arrow">↗</span>
+        </a>
 
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-top">
-          <span class="eyebrow">Nigeria. Young talent. Real opportunity.</span>
-          <span class="eyebrow">01 / The next generation</span>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+
+          <span class="menu-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+    >
+
+      <nav
+        class="container mobile-links"
+        aria-label="Mobile navigation"
+      >
+
+        <a href="#foundation">
+          The foundation
+        </a>
+
+        <a href="#programmes">
+          Programmes
+        </a>
+
+        <a href="#impact">
+          Our impact
+        </a>
+
+        <a href="#join">
+          How to join
+        </a>
+
+        <a href="#enquiry">
+          Register a player
+        </a>
+
+        <a href="#sponsor">
+          Sponsorship
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main id="main">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero" id="top">
+
+      <div class="hero-copy">
+
+        <div class="hero-tag">
+
+          <div class="hero-tag-line"></div>
+
+          <span>
+            Nigeria · Young talent · Real opportunity
+          </span>
+
         </div>
 
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <h1 id="hero-title">
-              <span>MORE THAN</span>
-              <span>THE <em>GAME.</em></span>
-            </h1>
+        <div class="eyebrow">
+          01 / The next generation
+        </div>
 
-            <div class="hero-intro">
-              <span class="hero-plus" aria-hidden="true">+</span>
-              <div>
-                <p>
-                  A place to play.<br>
-                  A chance to learn.<br>
-                  A future to build.
-                </p>
+        <h1>
+          More Than
+          <br>
+          <span class="hero-hollow">
+            The Game.
+          </span>
+        </h1>
 
-                <div class="hero-actions">
-                  <a class="button button-primary" href="#enquire">
-                    <span>Register a player</span>
-                    <svg class="icon" aria-hidden="true" focusable="false">
-                      <use href="#arrow-up-right"/>
-                    </svg>
-                  </a>
+        <p class="hero-intro">
+          A place to play. A chance to learn.
+          A future to build.
+        </p>
 
-                  <a class="button button-secondary" href="#sponsor">
-                    <span>Sponsor a child</span>
-                    <svg class="icon" aria-hidden="true" focusable="false">
-                      <use href="#arrow-up-right"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
+        <div class="hero-actions">
+
+          <a
+            class="btn btn-primary"
+            href="#enquiry"
+          >
+            Register a player
+            <span class="btn-arrow">↗</span>
+          </a>
+
+          <a
+            class="btn btn-outline"
+            href="#sponsor"
+          >
+            Sponsor a child
+            <span class="btn-arrow">↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <div
+        class="hero-visual"
+        role="img"
+        aria-label="Midas Football Academy players together on the pitch"
+      >
+
+        <div class="hero-side-number">
+          Midas / On the pitch / NG
+        </div>
+
+        <div class="hero-photo-label">
+
+          <span class="small">
+            Developing the next generation
+          </span>
+
+          <strong>
+            Small beginnings.
+            <br>
+            Big possibilities.
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         TICKER
+    ====================================================== -->
+
+    <div class="ticker" aria-hidden="true">
+
+      <div class="ticker-track">
+
+        <div class="ticker-item">
+          Football is the start
+          <span class="ticker-dot"></span>
+          Opportunity is the goal
+          <span class="ticker-dot"></span>
+          Football development
+          <span class="ticker-dot"></span>
+          Education
+          <span class="ticker-dot"></span>
+          Skills
+          <span class="ticker-dot"></span>
+          Mentorship
+          <span class="ticker-dot"></span>
+        </div>
+
+        <div class="ticker-item">
+          Football is the start
+          <span class="ticker-dot"></span>
+          Opportunity is the goal
+          <span class="ticker-dot"></span>
+          Football development
+          <span class="ticker-dot"></span>
+          Education
+          <span class="ticker-dot"></span>
+          Skills
+          <span class="ticker-dot"></span>
+          Mentorship
+          <span class="ticker-dot"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =====================================================
+         IMPACT
+    ====================================================== -->
+
+    <section class="impact" id="impact">
+
+      <div class="container">
+
+        <div class="impact-grid">
+
+          <article class="impact-card">
+
+            <div class="impact-value">
+              600<sup>+</sup>
             </div>
+
+            <div class="impact-label">
+              Youth registered and in development
+            </div>
+
+          </article>
+
+          <article class="impact-card">
+
+            <div class="impact-value">
+              50<sup>+</sup>
+            </div>
+
+            <div class="impact-label">
+              Academy alumni
+            </div>
+
+          </article>
+
+          <article class="impact-card">
+
+            <div class="impact-value">
+              100<sup>+</sup>
+            </div>
+
+            <div class="impact-label">
+              Youth in skills and vocational development
+            </div>
+
+          </article>
+
+          <article class="impact-card">
+
+            <div class="impact-value">
+              04
+            </div>
+
+            <div class="impact-label">
+              International tournament experiences
+            </div>
+
+          </article>
+
+        </div>
+
+        <div class="impact-source">
+          Figures published by Midas FA Foundation ↗
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         FOUNDATION
+    ====================================================== -->
+
+    <section
+      class="section"
+      id="foundation"
+    >
+
+      <div class="container foundation-grid">
+
+        <div class="foundation-statement">
+          Football can open a door.
+          <strong>
+            Midas helps young people walk through it.
+          </strong>
+        </div>
+
+        <div class="foundation-copy">
+
+          <div class="section-number">
+            01 / The Foundation
           </div>
 
-          <figure class="hero-photo">
-            <img
-              src="https://midasfafoundation.org/wp-content/uploads/2026/02/c2.jpg"
-              width="1257" height="849"
-              alt="Young players practising agility drills at Midas Football Academy"
-              fetchpriority="high"
-            >
-
-            <div class="photo-label">
-              <span>MIDAS / ON THE PITCH</span>
-              <span>NG</span>
-            </div>
-
-            <figcaption>
-              <span>SMALL BEGINNINGS.<br>BIG POSSIBILITIES.</span>
-              <a class="photo-link" href="#programmes"
-                aria-label="Explore our programmes">
-                <svg class="icon" aria-hidden="true" focusable="false">
-                  <use href="#arrow-down"/>
-                </svg>
-              </a>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="hero-foot">
-          <span>FOOTBALL IS THE START. OPPORTUNITY IS THE GOAL.</span>
-          <a href="#impact">
-            <span>SCROLL TO EXPLORE</span>
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-down"/>
-            </svg>
-          </a>
-        </div>
-      </section>
-
-      <section class="impact" id="impact" aria-label="Foundation impact">
-        <div class="impact-item">
-          <strong>600<span>+</span></strong>
-          <p>Youth registered<br>&amp; in development</p>
-        </div>
-        <div class="impact-item">
-          <strong>50<span>+</span></strong>
-          <p>Academy<br>alumni</p>
-        </div>
-        <div class="impact-item">
-          <strong>100<span>+</span></strong>
-          <p>Youth in skills &amp;<br>vocational development</p>
-        </div>
-        <div class="impact-item">
-          <strong>04</strong>
-          <p>International tournament<br>experiences</p>
-        </div>
-
-        <a class="impact-source" href="https://midasfafoundation.org/"
-          target="_blank" rel="noopener noreferrer">
-          Figures published by Midas FA Foundation
-        </a>
-      </section>
-
-      <section class="about section" id="about">
-        <span class="eyebrow">01 / The foundation</span>
-        <div>
-          <h2>
-            Talent is everywhere.<br>
-            <span class="muted">Opportunity should be, too.</span>
+          <h2 class="section-title">
+            Talent is
+            <br>
+            everywhere.
+            <br>
+            Opportunity
+            <br>
+            should be too.
           </h2>
 
-          <div class="about-copy">
-            <p>
-              For children and teenagers in Nigeria, football can open a door.
-              Midas FA Foundation helps them take the next step through
-              coaching, education, practical skills and mentorship.
-            </p>
-            <p>
-              We believe a young person’s progress matters on the pitch,
-              in the classroom and in their community.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="programmes">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">02 / Our programmes</span>
-            <h2>Built for life.<br>Powered by football.</h2>
-          </div>
-          <p>
-            Four ways to help a young person find their feet
-            and move forward.
+          <p class="section-copy">
+            For children and teenagers in Nigeria, football
+            can be the beginning of something much bigger.
+            Midas FA Foundation supports that journey through
+            coaching, education, practical skills and
+            mentorship.
           </p>
+
+          <p class="section-copy" style="margin-top:18px;">
+            Progress matters on the pitch, in the classroom
+            and in the community. The goal is not simply to
+            create better footballers, but to help young
+            people build stronger futures.
+          </p>
+
         </div>
 
-        <div class="programme-grid">
-          <figure class="programme-photo">
-            <img
-              src="https://midasfafoundation.org/wp-content/uploads/2026/02/c1.jpg"
-              width="1257" height="849"
-              alt="Midas academy players taking part in a training exercise"
-              loading="lazy" decoding="async"
-            >
-            <figcaption>DEVELOP THE PLAYER. SUPPORT THE PERSON.</figcaption>
-          </figure>
-
-          <div>
-            <details open>
-              <summary>
-                <span class="programme-number">01</span>
-                <h3>Football development</h3>
-                <svg class="icon" aria-hidden="true" focusable="false">
-                  <use href="#plus"/>
-                </svg>
-              </summary>
-              <p>
-                Build technique, teamwork and discipline through coaching
-                and opportunities to compete.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                <span class="programme-number">02</span>
-                <h3>Education support</h3>
-                <svg class="icon" aria-hidden="true" focusable="false">
-                  <use href="#plus"/>
-                </svg>
-              </summary>
-              <p>
-                Support learning and exam participation, helping young people
-                progress beyond their sporting ambitions.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                <span class="programme-number">03</span>
-                <h3>Vocational &amp; digital skills</h3>
-                <svg class="icon" aria-hidden="true" focusable="false">
-                  <use href="#plus"/>
-                </svg>
-              </summary>
-              <p>
-                Develop practical abilities that create possibilities
-                alongside a career in football.
-              </p>
-            </details>
-
-            <details>
-              <summary>
-                <span class="programme-number">04</span>
-                <h3>Mentorship &amp; life skills</h3>
-                <svg class="icon" aria-hidden="true" focusable="false">
-                  <use href="#plus"/>
-                </svg>
-              </summary>
-              <p>
-                Help young people grow in confidence, make thoughtful decisions
-                and contribute to their communities.
-              </p>
-            </details>
-
-            <a class="inline-link" href="#enquire">
-              Find the right starting point
-              <svg class="icon" aria-hidden="true" focusable="false">
-                <use href="#arrow-up-right"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <div class="statement-band">
-        TRAIN WITH PURPOSE. GROW WITH CONFIDENCE. PLAY FOR YOUR FUTURE.
       </div>
 
-      <section class="section" id="join">
-        <div class="section-heading">
+    </section>
+
+    <!-- =====================================================
+         PROGRAMMES
+    ====================================================== -->
+
+    <section
+      class="section programmes"
+      id="programmes"
+    >
+
+      <div class="container">
+
+        <div class="programme-heading">
+
           <div>
-            <span class="eyebrow">03 / How to join</span>
-            <h2>Your first step<br>starts here.</h2>
+
+            <div class="section-number">
+              02 / Our programmes
+            </div>
+
+            <h2 class="section-title">
+              Built for life.
+              <br>
+              Powered by
+              <br>
+              football.
+            </h2>
+
           </div>
+
           <p>
-            A proposed, simpler pathway for players and parents.
-            No account needed to enquire.
+            Four connected areas of development give young
+            people the support to grow on the pitch and
+            beyond it.
           </p>
+
         </div>
 
-        <ol class="steps">
-          <li>
-            <span class="step-number">01</span>
-            <h3>Enquire</h3>
-            <p>Tell us a little about the player and how to reach you.</p>
-          </li>
-          <li>
-            <span class="step-number">02</span>
-            <h3>Assessment</h3>
-            <p>
-              Speak with the team about the right programme
-              and any assessment needed.
-            </p>
-          </li>
-          <li>
-            <span class="step-number">03</span>
-            <h3>Registration</h3>
-            <p>
-              Confirm requirements and complete registration
-              with the academy.
-            </p>
-          </li>
-          <li>
-            <span class="step-number">04</span>
-            <h3>Development</h3>
-            <p>
-              Begin a journey of training, learning
-              and personal growth.
-            </p>
-          </li>
-        </ol>
-      </section>
+        <div class="programme-feature">
 
-      <section class="enquiry section" id="enquire">
+          <div
+            class="programme-photo"
+            role="img"
+            aria-label="Players taking part in Midas Football Academy activities"
+          ></div>
+
+          <div class="programme-list">
+
+            <article class="programme-row">
+
+              <div class="programme-num">
+                01
+              </div>
+
+              <div>
+
+                <h3>
+                  Football development
+                </h3>
+
+                <p>
+                  Structured coaching, match experience,
+                  teamwork, discipline and competitive
+                  opportunities.
+                </p>
+
+              </div>
+
+            </article>
+
+            <article class="programme-row">
+
+              <div class="programme-num">
+                02
+              </div>
+
+              <div>
+
+                <h3>
+                  Education support
+                </h3>
+
+                <p>
+                  Support that encourages young players to
+                  develop academically alongside their
+                  football journey.
+                </p>
+
+              </div>
+
+            </article>
+
+            <article class="programme-row">
+
+              <div class="programme-num">
+                03
+              </div>
+
+              <div>
+
+                <h3>
+                  Vocational & digital skills
+                </h3>
+
+                <p>
+                  Practical learning that can create more
+                  opportunities beyond competitive sport.
+                </p>
+
+              </div>
+
+            </article>
+
+            <article class="programme-row">
+
+              <div class="programme-num">
+                04
+              </div>
+
+              <div>
+
+                <h3>
+                  Mentorship & life skills
+                </h3>
+
+                <p>
+                  Personal development focused on confidence,
+                  discipline, leadership and responsible
+                  decision-making.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         REAL MOMENTS / PHOTO PROOF
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="gallery-heading">
+
+          <div>
+
+            <div class="section-number">
+              On the pitch
+            </div>
+
+            <h2 class="section-title">
+              Real players.
+              <br>
+              Real moments.
+            </h2>
+
+          </div>
+
+          <p class="section-copy">
+            The strongest part of Midas is the people already
+            inside it. A redesigned website should make the
+            academy's players, activities and community more
+            visible rather than hiding them behind generic
+            layouts.
+          </p>
+
+        </div>
+
+        <div class="gallery-grid">
+
+          <figure class="gallery-item">
+
+            <img
+              src="https://midasfafoundation.org/wp-content/uploads/2025/02/IMG-20250209-WA0041.jpg"
+              alt="Midas FA Foundation football players"
+              loading="lazy"
+            />
+
+            <figcaption class="gallery-overlay">
+              <span>
+                Football development
+              </span>
+            </figcaption>
+
+          </figure>
+
+          <figure class="gallery-item">
+
+            <img
+              src="https://midasfafoundation.org/wp-content/uploads/2025/02/IMG-20250209-WA0046.jpg"
+              alt="Young footballers participating in Midas academy activities"
+              loading="lazy"
+            />
+
+            <figcaption class="gallery-overlay">
+              <span>
+                Training · development · opportunity
+              </span>
+            </figcaption>
+
+          </figure>
+
+          <figure class="gallery-item">
+
+            <img
+              src="https://midasfafoundation.org/wp-content/uploads/2025/02/IMG-20250209-WA0041.jpg"
+              alt="Midas football academy activity"
+              loading="lazy"
+            />
+
+            <figcaption class="gallery-overlay">
+              <span>
+                Building the next generation
+              </span>
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         JOIN
+    ====================================================== -->
+
+    <section
+      class="section join"
+      id="join"
+    >
+
+      <div class="container">
+
+        <div class="join-heading">
+
+          <div>
+
+            <div class="section-number">
+              03 / How to join
+            </div>
+
+            <h2 class="section-title">
+              Your first
+              <br>
+              step starts
+              <br>
+              here.
+            </h2>
+
+          </div>
+
+          <p class="section-copy">
+            A proposed simpler journey for players and parents.
+            No account is required just to make an initial
+            enquiry.
+          </p>
+
+        </div>
+
+        <div class="steps">
+
+          <article class="step-card">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <h3>
+              Enquire
+            </h3>
+
+            <p>
+              Tell the academy a little about the player and
+              provide a way to contact you.
+            </p>
+
+          </article>
+
+          <article class="step-card">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <h3>
+              Assessment
+            </h3>
+
+            <p>
+              Speak with the team about the appropriate
+              programme and whether an assessment is needed.
+            </p>
+
+          </article>
+
+          <article class="step-card">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <h3>
+              Registration
+            </h3>
+
+            <p>
+              Confirm the academy requirements and complete
+              the agreed registration process.
+            </p>
+
+          </article>
+
+          <article class="step-card">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <h3>
+              Development
+            </h3>
+
+            <p>
+              Begin a journey involving football, learning,
+              mentorship and personal development.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         ENQUIRY
+    ====================================================== -->
+
+    <section
+      class="section enquiry"
+      id="enquiry"
+    >
+
+      <div class="container enquiry-grid">
+
         <div class="enquiry-intro">
-          <span class="eyebrow">04 / Player enquiries</span>
-          <h2>Got the passion?<br>Let’s talk.</h2>
-          <p>
+
+          <div class="section-number">
+            04 / Player enquiries
+          </div>
+
+          <h2 class="section-title">
+            Ready to
+            <br>
+            take the
+            <br>
+            first step?
+          </h2>
+
+          <p class="section-copy">
             Parents, guardians and players can start here.
-            The academy team can advise on eligibility, fees and the next steps.
+            The academy team can then advise on eligibility,
+            programmes, fees and the appropriate next step.
           </p>
 
-          <div class="direct-contact">
-            <span class="eyebrow">Prefer to speak to someone?</span>
+          <div class="phone-block">
+
+            <small>
+              Prefer to speak to someone?
+            </small>
+
             <a href="tel:+2348033769034">
-              +234 803 376 9034
-              <svg class="icon" aria-hidden="true" focusable="false">
-                <use href="#arrow-up-right"/>
-              </svg>
+              +234 803 376 9034 ↗
             </a>
+
           </div>
+
         </div>
 
-        <form id="enquiry-form" aria-describedby="form-note">
-          <div class="form-heading">
-            <h3>Introduce your player</h3>
-            <span class="demo-label">SAMPLE FORM</span>
+        <form
+          class="form-card"
+          id="sampleForm"
+        >
+
+          <div class="form-label-top">
+            Sample enquiry form · Demonstration only
           </div>
 
           <div class="form-grid">
-            <label for="contact-name">
-              Your name
-              <input
-                id="contact-name" name="name" type="text"
-                autocomplete="name" maxlength="100" required
-                placeholder="Parent, guardian or adult player"
-              >
-            </label>
 
-            <label for="contact-email">
-              Contact email
-              <input
-                id="contact-email" name="email" type="email"
-                autocomplete="email" maxlength="254" required
-                placeholder="you@example.com"
-              >
-            </label>
+            <div class="field-group">
 
-            <label for="player-age">
-              Player’s age group
-              <select id="player-age" name="age" required>
-                <option value="">Select age group</option>
-                <option>Under 12</option>
-                <option>12–15</option>
-                <option>16–17</option>
-                <option>18 or over</option>
+              <label for="name">
+                Your name
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Parent / guardian name"
+              />
+
+            </div>
+
+            <div class="field-group">
+
+              <label for="email">
+                Contact email
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="name@example.com"
+              />
+
+            </div>
+
+            <div class="field-group">
+
+              <label for="age">
+                Player's age group
+              </label>
+
+              <select
+                id="age"
+                name="age"
+              >
+
+                <option value="">
+                  Select age group
+                </option>
+
+                <option>
+                  Under 12
+                </option>
+
+                <option>
+                  12–15
+                </option>
+
+                <option>
+                  16–17
+                </option>
+
+                <option>
+                  18 or over
+                </option>
+
               </select>
-            </label>
 
-            <label for="player-city">
-              Area / city
+            </div>
+
+            <div class="field-group">
+
+              <label for="city">
+                Area / city
+              </label>
+
               <input
-                id="player-city" name="city" type="text"
-                autocomplete="address-level2" maxlength="100" required
-                placeholder="e.g. Lagos"
-              >
-            </label>
+                id="city"
+                name="city"
+                type="text"
+                placeholder="Your location"
+              />
+
+            </div>
+
+            <div class="field-group full">
+
+              <label for="message">
+                What would you like to know?
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Optional"
+              ></textarea>
+
+            </div>
+
           </div>
 
-          <label class="message-field" for="enquiry-message">
-            What would you like to know?
-            <span class="optional">(optional)</span>
-            <textarea
-              id="enquiry-message" name="message"
-              rows="3" maxlength="1500"
-              placeholder="Tell us about your interest in the academy"
-            ></textarea>
-          </label>
+          <div class="form-notice">
+            <strong>Demo only.</strong>
+            Information entered into this sample is not sent
+            to Midas FA Foundation or stored. Please use
+            fictional information when testing the form.
+          </div>
 
-          <p class="form-note" id="form-note">
-            Demo only. Details are not sent or stored.
-            Please use fictional information to try the form.
-          </p>
-
-          <button class="button button-primary" type="submit">
-            <span>Preview enquiry</span>
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-up-right"/>
-            </svg>
+          <button
+            class="btn btn-dark"
+            type="submit"
+          >
+            Preview enquiry
+            <span class="btn-arrow">↗</span>
           </button>
 
           <div
-            class="form-result" id="form-result"
-            role="status" aria-live="polite" tabindex="-1" hidden
-          ></div>
-        </form>
-      </section>
-
-      <section class="sponsor section" id="sponsor">
-        <span class="eyebrow">05 / Sponsor a child</span>
-        <div>
-          <h2>BE PART OF<br>SOMEONE’S <em>START.</em></h2>
-          <div class="sponsor-bottom">
-            <p>
-              Support access to football, education and skills development.
-              Talk to Midas about sponsorship, grants or a partnership.
-            </p>
-            <a class="button button-light"
-              href="mailto:info@midasfootballacademy.com?subject=Sponsorship%20enquiry">
-              <span>Discuss sponsorship</span>
-              <svg class="icon" aria-hidden="true" focusable="false">
-                <use href="#arrow-up-right"/>
-              </svg>
-            </a>
+            class="form-result"
+            id="formResult"
+            role="status"
+            aria-live="polite"
+          >
+            This demonstrates the proposed enquiry flow.
+            On the finished website, the enquiry would be
+            securely delivered to the Foundation's designated
+            contact.
           </div>
-        </div>
-      </section>
 
-      <section class="safeguarding section">
-        <div>
-          <span class="eyebrow">Child safety comes first</span>
-          <h3>Have a safeguarding concern?</h3>
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         SPONSORSHIP
+    ====================================================== -->
+
+    <section
+      class="section sponsor"
+      id="sponsor"
+    >
+
+      <div class="container">
+
+        <div class="sponsor-head">
+
+          <div>
+
+            <div class="section-number">
+              05 / Support the foundation
+            </div>
+
+            <h2 class="section-title">
+              Be part of
+              <br>
+              someone's
+              <br>
+              start.
+            </h2>
+
+          </div>
+
           <p>
-            Report concerns about a child’s safety or wellbeing
-            directly to the foundation.
+            Support can go beyond football. A clearer
+            partnership pathway can help individuals,
+            organisations and brands understand where their
+            contribution can create meaningful impact.
           </p>
+
         </div>
+
+        <div class="sponsor-options">
+
+          <a
+            href="https://midasfafoundation.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sponsor-card"
+          >
+
+            <span class="sponsor-card-number">
+              01 / Player support
+            </span>
+
+            <div class="sponsor-card-content">
+
+              <h3>
+                Sponsor
+                <br>
+                a player
+              </h3>
+
+              <p>
+                Help give a young person greater access to
+                coaching, development opportunities and the
+                academy environment.
+              </p>
+
+              <div class="sponsor-card-arrow">
+                ↗
+              </div>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://midasfafoundation.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sponsor-card"
+          >
+
+            <span class="sponsor-card-number">
+              02 / Development
+            </span>
+
+            <div class="sponsor-card-content">
+
+              <h3>
+                Education
+                <br>
+                & skills
+              </h3>
+
+              <p>
+                Support initiatives that help young people
+                develop academically, vocationally and
+                personally alongside football.
+              </p>
+
+              <div class="sponsor-card-arrow">
+                ↗
+              </div>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://midasfafoundation.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sponsor-card"
+          >
+
+            <span class="sponsor-card-number">
+              03 / Organisations
+            </span>
+
+            <div class="sponsor-card-content">
+
+              <h3>
+                Corporate
+                <br>
+                partnership
+              </h3>
+
+              <p>
+                Give organisations a clear route to discuss
+                sponsorship, grants, programme support and
+                longer-term collaboration.
+              </p>
+
+              <div class="sponsor-card-arrow">
+                ↗
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+        <div class="sponsor-cta">
+
+          <p>
+            The finished website could connect each pathway
+            to a dedicated enquiry form or partnership contact
+            instead of asking every visitor to follow the same
+            route.
+          </p>
+
+          <a
+            class="btn btn-dark"
+            href="https://midasfafoundation.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Discuss sponsorship
+            <span class="btn-arrow">↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =====================================================
+         SAFEGUARDING
+    ====================================================== -->
+
+    <section class="safeguarding">
+
+      <div class="container safeguarding-grid">
+
+        <h2>
+          Child safety
+          <br>
+          comes first.
+        </h2>
+
+        <p>
+          Have a safeguarding concern? Concerns about a
+          child's safety or wellbeing should be reported
+          directly to the Foundation through its official
+          contact channels.
+        </p>
 
         <div class="safeguarding-links">
+
           <a href="mailto:info@midasfootballacademy.com">
-            <span>info@midasfootballacademy.com</span>
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-up-right"/>
-            </svg>
+            info@midasfootballacademy.com ↗
           </a>
+
           <a href="tel:+2348033769034">
-            <span>+234 803 376 9034</span>
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-up-right"/>
-            </svg>
+            +234 803 376 9034 ↗
           </a>
-        </div>
-      </section>
-    </main>
 
-    <footer>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer class="footer">
+
+    <div class="container">
+
       <div class="footer-top">
-        <a class="brand" href="#" aria-label="Midas Foundation home">
-          <img
-            src="https://midasfafoundation.org/wp-content/uploads/2026/02/cropped-logo-192x192.png"
-            width="52" height="52" alt="" loading="lazy"
-          >
-          <span class="brand-name">MIDAS FA<small>FOUNDATION</small></span>
-        </a>
 
-        <p>Inspire generations.<br>Build for success.</p>
-
-        <div class="footer-links">
-          <a href="https://www.instagram.com/midasfang/"
-            target="_blank" rel="noopener noreferrer">
-            Instagram
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-up-right"/>
-            </svg>
-          </a>
-
-          <a href="https://www.tiktok.com/@midasfang"
-            target="_blank" rel="noopener noreferrer">
-            TikTok
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-up-right"/>
-            </svg>
-          </a>
-
-          <a href="https://midasfafoundation.org/"
-            target="_blank" rel="noopener noreferrer">
-            Current website
-            <svg class="icon" aria-hidden="true" focusable="false">
-              <use href="#arrow-up-right"/>
-            </svg>
-          </a>
+        <div class="footer-title">
+          Midas
+          <br>
+          <span class="outline">
+            Foundation
+          </span>
         </div>
+
+        <div class="footer-side">
+
+          <a
+            href="https://midasfafoundation.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Current website
+            <span>↗</span>
+          </a>
+
+          <a
+            href="#enquiry"
+          >
+            Player enquiries
+            <span>↗</span>
+          </a>
+
+          <a
+            href="#sponsor"
+          >
+            Partnerships
+            <span>↗</span>
+          </a>
+
+          <a
+            href="#top"
+          >
+            Back to top
+            <span>↑</span>
+          </a>
+
+        </div>
+
       </div>
 
       <div class="footer-bottom">
-        <span>MIDAS FOOTBALL ACADEMY FOUNDATION · RC 9023944</span>
-        <span>Sample redesign by Favour Imegu · Not the official website</span>
-        <a href="#">
-          BACK TO TOP
-          <svg class="icon" aria-hidden="true" focusable="false">
-            <use href="#arrow-up"/>
-          </svg>
-        </a>
+
+        <div>
+          MIDAS FOOTBALL ACADEMY FOUNDATION · RC 9023944
+        </div>
+
+        <div>
+          INSPIRE GENERATIONS · BUILD FOR SUCCESS
+        </div>
+
       </div>
-    </footer>
+
+    </div>
+
+  </footer>
+
+  <div class="sample-note">
+    Sample redesign by Favour Imegu · Not the official Midas FA Foundation website
   </div>
 
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
   <script>
-    (() => {
-      const root = document.documentElement;
-      const themeButton = document.getElementById("theme-button");
-      const menuButton = document.getElementById("menu-button");
-      const navigation = document.getElementById("main-nav");
-      const header = document.querySelector(".site-header");
-      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-      const desktopLayout = matchMedia("(min-width: 901px)");
+    /* ========================================================
+       THEME
+    ======================================================== */
 
-      let themeBusy = false;
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeWipe = document.getElementById("themeWipe");
 
-      function updateThemeLabel() {
-        const dark = root.classList.contains("dark");
-        const label = dark ? "Switch to light theme" : "Switch to dark theme";
+    const savedTheme = localStorage.getItem("midas-theme");
 
-        themeButton.setAttribute("aria-label", label);
-        themeButton.title = label;
-      }
+    if (savedTheme === "dark") {
+      body.classList.add("dark");
+    }
 
-      function setTheme(dark) {
-        root.classList.toggle("dark", dark);
+    updateThemeLabel();
+
+    function updateThemeLabel() {
+      const isDark = body.classList.contains("dark");
+
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark
+          ? "Switch to light theme"
+          : "Switch to dark theme"
+      );
+
+      themeToggle.setAttribute(
+        "title",
+        isDark
+          ? "Switch to light theme"
+          : "Switch to dark theme"
+      );
+    }
+
+    themeToggle.addEventListener("click", () => {
+
+      const rect = themeToggle.getBoundingClientRect();
+
+      themeWipe.style.setProperty(
+        "--wipe-x",
+        `${rect.left + rect.width / 2}px`
+      );
+
+      themeWipe.style.setProperty(
+        "--wipe-y",
+        `${rect.top + rect.height / 2}px`
+      );
+
+      const goingDark =
+        !body.classList.contains("dark");
+
+      themeWipe.style.setProperty(
+        "--wipe-color",
+        goingDark ? "#090b09" : "#f3f2ec"
+      );
+
+      themeWipe.classList.remove("animate");
+
+      void themeWipe.offsetWidth;
+
+      themeWipe.classList.add("animate");
+
+      window.setTimeout(() => {
+
+        body.classList.toggle("dark");
+
+        localStorage.setItem(
+          "midas-theme",
+          body.classList.contains("dark")
+            ? "dark"
+            : "light"
+        );
+
         updateThemeLabel();
 
-        try {
-          localStorage.setItem("midas-theme", dark ? "dark" : "light");
-        } catch {}
-      }
+      }, 300);
 
-      updateThemeLabel();
+      window.setTimeout(() => {
+        themeWipe.classList.remove("animate");
+      }, 820);
 
-      themeButton.addEventListener("click", async () => {
-        if (themeBusy) return;
+    });
 
-        const nextDark = !root.classList.contains("dark");
-        const rect = themeButton.getBoundingClientRect();
+    /* ========================================================
+       MOBILE MENU
+    ======================================================== */
 
-        root.style.setProperty(
-          "--wipe-x",
-          `${rect.left + rect.width / 2}px`
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    function closeMobileMenu() {
+
+      mobileMenu.classList.remove("open");
+      menuToggle.classList.remove("active");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation"
+      );
+
+    }
+
+    menuToggle.addEventListener("click", () => {
+
+      const isOpen =
+        mobileMenu.classList.toggle("open");
+
+      menuToggle.classList.toggle(
+        "active",
+        isOpen
+      );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation"
+          : "Open navigation"
+      );
+
+    });
+
+    document
+      .querySelectorAll(".mobile-links a")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          closeMobileMenu
         );
 
-        root.style.setProperty(
-          "--wipe-y",
-          `${rect.top + rect.height / 2}px`
-        );
-
-        if (
-          typeof document.startViewTransition !== "function" ||
-          reducedMotion.matches
-        ) {
-          setTheme(nextDark);
-          return;
-        }
-
-        themeBusy = true;
-
-        try {
-          const transition = document.startViewTransition(() => {
-            setTheme(nextDark);
-          });
-
-          await transition.finished;
-        } catch {
-          setTheme(nextDark);
-        } finally {
-          themeBusy = false;
-        }
       });
 
-      function closeMenu({ restoreFocus = false } = {}) {
-        navigation.classList.remove("is-open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.textContent = "Menu";
+    window.addEventListener("resize", () => {
 
-        if (restoreFocus) menuButton.focus();
+      if (window.innerWidth > 930) {
+        closeMobileMenu();
       }
 
-      menuButton.addEventListener("click", () => {
-        const open = navigation.classList.toggle("is-open");
+    });
 
-        menuButton.setAttribute("aria-expanded", String(open));
-        menuButton.textContent = open ? "Close" : "Menu";
-      });
+    /* ========================================================
+       SAMPLE FORM
+    ======================================================== */
 
-      navigation.addEventListener("click", event => {
-        if (event.target.closest("a")) closeMenu();
-      });
+    const sampleForm =
+      document.getElementById("sampleForm");
 
-      document.addEventListener("click", event => {
-        if (
-          navigation.classList.contains("is-open") &&
-          !header.contains(event.target)
-        ) {
-          closeMenu();
-        }
-      });
+    const formResult =
+      document.getElementById("formResult");
 
-      document.addEventListener("keydown", event => {
-        if (
-          event.key === "Escape" &&
-          navigation.classList.contains("is-open")
-        ) {
-          closeMenu({ restoreFocus: true });
-        }
-      });
+    sampleForm.addEventListener(
+      "submit",
+      (event) => {
 
-      desktopLayout.addEventListener("change", event => {
-        if (event.matches) closeMenu();
-      });
-
-      const form = document.getElementById("enquiry-form");
-      const result = document.getElementById("form-result");
-
-      form.addEventListener("submit", event => {
         event.preventDefault();
 
-        const data = new FormData(form);
-        const name = String(data.get("name") || "").trim();
-        const email = String(data.get("email") || "").trim();
-        const city = String(data.get("city") || "").trim();
-        const age = String(data.get("age") || "");
-        const message = String(data.get("message") || "").trim();
+        formResult.classList.add("visible");
 
-        if (!name || !city) {
-          const input = document.getElementById(
-            !name ? "contact-name" : "player-city"
-          );
+        formResult.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
 
-          input.setCustomValidity("Please enter a value, not only spaces.");
-          input.reportValidity();
-          input.addEventListener("input", () => {
-            input.setCustomValidity("");
-          }, { once: true });
+      }
+    );
 
-          return;
+    /* ========================================================
+       ESCAPE KEY
+    ======================================================== */
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (event.key === "Escape") {
+          closeMobileMenu();
         }
 
-        result.replaceChildren();
-
-        const title = document.createElement("strong");
-        title.textContent = "Your enquiry preview";
-
-        const summary = document.createElement("p");
-        summary.textContent =
-          `${name} · ${email} · Age group: ${age} · Location: ${city}`;
-
-        const note = document.createElement("p");
-        note.textContent =
-          "This is a sample confirmation. Nothing has been sent or stored. " +
-          "The finished form would deliver your enquiry to the academy.";
-
-        result.append(title, summary);
-
-        if (message) {
-          const messagePreview = document.createElement("p");
-          messagePreview.textContent = message;
-          messagePreview.style.marginBlock = "0.75rem";
-          result.appendChild(messagePreview);
-        }
-
-        note.style.marginTop = "0.75rem";
-        result.appendChild(note);
-        result.hidden = false;
-        result.focus();
-      });
-    })();
+      }
+    );
   </script>
+
 </body>
 </html>
